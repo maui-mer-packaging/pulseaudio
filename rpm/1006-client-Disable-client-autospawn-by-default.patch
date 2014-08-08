@@ -1,0 +1,33 @@
+From 59a1f6ac58db069334e89a0d6633b6c7bc7d9c51 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Juho=20H=C3=A4m=C3=A4l=C3=A4inen?=
+ <juho.hamalainen@tieto.com>
+Date: Fri, 4 Oct 2013 12:41:15 +0300
+Subject: [PATCH 1006/1012] client: Disable client autospawn by default.
+
+Not upstreamable.
+---
+ src/pulse/client.conf.in | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/src/pulse/client.conf.in b/src/pulse/client.conf.in
+index 17753b0..86b70b7 100644
+--- a/src/pulse/client.conf.in
++++ b/src/pulse/client.conf.in
+@@ -24,7 +24,13 @@
+ ; default-server =
+ ; default-dbus-server =
+ 
+-; autospawn = yes
++# Autospawning daemon if daemon is not running is enabled by default.
++# With Mer we want to control daemon startup and stopping using user session
++# and to prevent other clients autospawning daemon before systemd starts
++# PulseAudio we change the default to disabling autospawn alltogether.
++# If/when PulseAudio startup is tied to some other session this can be
++# reverted back to default.
++autospawn = no
+ ; daemon-binary = @PA_BINARY@
+ ; extra-arguments = --log-target=syslog
+ 
+-- 
+1.8.5.2
+
