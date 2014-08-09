@@ -28,7 +28,7 @@ Patch10:    1011-daemon-Exit-with-0-on-SIGINT-or-SIGTERM.patch
 Patch11:    1012-bluez4-device-Fix-assert-when-source-doesn-t-exist-w.patch
 Patch12:    2001-dbus-Use-correct-initialization-for-source-ports-has.patch
 Requires:   udev
-Requires:   libsbc >= 1.0
+Requires:   sbc >= 1.0
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(alsa) >= 1.0.24
